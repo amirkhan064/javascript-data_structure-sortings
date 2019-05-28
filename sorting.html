@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Sorting in Javascript</h2>
+  <ul>
+    <li>1. Bubble Sorting</li>
+    <li>2. Insertion Sorting</li>
+    <li>3. Quick Sort Sorting</li>
+  </ul>
+
+  <div>
+    Please open the console log for action ....
+  </div>
+
+  <script>
+
+    // ==================== Quick Sort ========================
+
+    var arrToBeSort = [3, 8, 5, 2, 4, 6, 9, 8, 4, 52, 455, -1, 45, 0];
+
+    function quick_sort(arr) {
+      if (arr <= 1) return arr;
+      let left = [];
+      let right = [];
+      const [povit, ...rest] = arr;
+      rest.forEach(el => el < povit ? left.push(el) : right.push(el));
+      return quick_sort(left).concat(povit).concat(quick_sort(right))
+    }
+
+    // let arrToBeSort = [3, 8, 5, 2, 4, 6, 9, 8, 4, 52, 455, -1, 45, 0];
+
+    console.log('QuickSort Array', arrToBeSort);
+    let QuickSortsortedArr = quick_sort(arrToBeSort);
+    console.log('QuickSort Sorted Array', QuickSortsortedArr);
+
+
+
+    // =================== Bubble Sort ===========================
+
+    function bubble_sort(arr) {
+      do {
+        var sorted = false;
+        arr.forEach((val, i) => {
+          if (val > arr[i + 1]) {
+            arr[i] = arr[i + 1];
+            arr[i + 1] = val;
+            sorted = true;
+          }
+        });
+      } while (sorted === true);
+      return arr;
+    }
+
+    // console.log('bubble_sort Array', arrToBeSort);
+    // let bubble_sortsortedArr = bubble_sort(arrToBeSort);
+    // console.log('bubble_sort Sorted Array', bubble_sortsortedArr);
+
+<p>
+  <b>Note</b>: Because of bubble sort - it's updating insertion Sort Array Argument so comment above three lines if you are testing Insertion Sort.
+</p>
+    // insertion Sort
+
+    function insertion_sort(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < i; j++) {
+          if (arr[i] < arr[j]) {
+            let temp = arr.splice(i, 1);
+            arr.splice(j, 0, temp[0]);
+          }
+
+        }
+      }
+      return arr;
+    }
+
+    console.log('insertion Array', arrToBeSort);
+    let insertionsortedArr = insertion_sort(arrToBeSort);
+    console.log('insertion Sorted Array', insertionsortedArr);
+    
+    
+    
+    <p>
+     <b>Note2</b> : Soon i will post better solution for other Sortings as well
+    </p>
+
+  </script>
+</body>
+
+</html>
