@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <h2>Search Algorithams in Javascript</h2>
+  <ul>
+    <p>1. Linear Search</p>
+    <p>2. Binary Search</p>
+  </ul>
+
+  <div>
+    Please open the console log for action ....
+  </div>
+
+  <script>
+
+    // ==================== Linear Search ========================
+
+    var arr1 = [3, 8, 5, 2, 4, 6, 9, 8, 52, 455, -1, 45, 0];
+
+    function linear_search(array, elem) {
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === elem) {
+          return i; // element position 
+        }
+      }
+      return -1;
+    }
+
+    console.log('QuickSort Sorted Array', linear_search(arr1, 45));
+
+
+
+    // =================== Binary Sort ===========================
+
+    var arr2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13, 16, 19, 50, 55, 63, 99]; // Sorted Array
+
+    // Note: 'For Binary Search we needs a sorted array'
+
+    function binary_search(arr, elem) {
+      let start = 0;
+      let end = (arr.length - 1);
+      let middle = Math.floor((start + end) / 2);
+      while (arr[middle] !== elem && start <= end) {
+        if (arr[middle] < elem) start = middle + 1;
+        else end = middle - 1;
+        middle = Math.floor((start + end) / 2);
+      }
+      return arr[middle] === elem ? middle : -1;
+    }
+
+    console.log(binary_search(arr2, 50))
+
+  </script>
+</body>
+
+</html>
