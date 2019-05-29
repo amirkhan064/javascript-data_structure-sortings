@@ -19,7 +19,7 @@
     var arrToBeSort = [3, 8, 5, 2, 4, 6, 9, 8, 4, 52, 455, -1, 45, 0];
 
     function quick_sort(arr) {
-      if (arr <= 1) return arr;
+      if (arr.length <= 1) return arr;
       let left = [];
       let right = [];
       const [povit, ...rest] = arr;
